@@ -1,0 +1,12 @@
+SetEnv CI_ENV production
+
+Options -Indexes
+
+ErrorDocument 403 http://perpustakaan.test/errors/403/
+
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ index.php/$1 [L]
+
+# RedirectMatch ^/$ http://perpustakaan.test/autentikasi/masuk
